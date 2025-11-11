@@ -9,10 +9,10 @@ type Props = {
     title: string,
     subtitle?: string;
     icon?: keyof typeof FontAwesome5.glyphMap;
-   // children: React.ReactNode;
+    children: React.ReactNode;
 }
 
-export default function AuthContainer({title, subtitle, icon, /*children*/ } : Props) {
+export default function AuthContainer({title, subtitle, icon, children} : Props) {
     return (
         <SafeAreaView style={global.safeArea}>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={global.keyboardAvoiding}>
@@ -23,7 +23,7 @@ export default function AuthContainer({title, subtitle, icon, /*children*/ } : P
                         {!! subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
                     </View>
                     <View style= {global.content}>
-                        {/* {children} */}
+                        {children}
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
