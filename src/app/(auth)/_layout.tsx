@@ -12,9 +12,8 @@ replace()
 
 
 import { Stack } from "expo-router";
-import { StackScreen } from "react-native-screens";
 
-export default function AuthLayout(){
+const AuthLayout = () => {
     return(
         <Stack>
             <Stack screenOptions={{headerShown:false}}/>
@@ -24,3 +23,5 @@ export default function AuthLayout(){
         </Stack>
     )
 }
+
+export default AuthLayout;

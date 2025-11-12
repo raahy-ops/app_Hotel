@@ -12,13 +12,13 @@ type Props = {
     children: React.ReactNode;
 }
 
-export default function AuthContainer({title, subtitle, icon, children} : Props) {
+const AuthContainer = ({title, subtitle, icon, children} : Props) =>  {
     return (
         <SafeAreaView style={global.safeArea}>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={global.keyboardAvoiding}>
                 <ScrollView style = {global.container}>
                     <View style = {global.header}>
-                        {!!icon && <FontAwesome5 name= {icon} size={24} color="orange" />}
+                        {!!icon && <FontAwesome5 name= {icon} size={24} color="#2F4156" />}
                         <Text style={global.title}>{title}</Text>
                         {!! subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
                     </View>
@@ -30,3 +30,6 @@ export default function AuthContainer({title, subtitle, icon, children} : Props)
         </SafeAreaView>
     );
 }
+
+
+export default AuthContainer; 
