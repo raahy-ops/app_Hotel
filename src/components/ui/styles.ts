@@ -85,11 +85,38 @@ export const global = StyleSheet.create({
         paddingHorizontal:width * 0.02
     },
 
+    eyeIcon : {
+        position: "absolute",
+        right: 12,
+        top: 42
+    },
+
     errorText: {
         color: "red",
         fontSize: 15,
         fontWeight: "600",
         marginTop: height * 0.01
     },
+
+    primaryButton: {
+        backgroundColor: "#567c8dd2",
+        borderRadius: 10,
+        padding: width * 0.025,
+        marginTop: width * 0.02,
+        alignItems: "center"
+
+    },
+
+    primaryButtonDisabled: {
+        backgroundColor: "#9ca3af",
+        borderRadius: 10,
+    },
+
+    primaryButtonText: {
+        color : "#fff"
+    }
+
+
+
 
 })
