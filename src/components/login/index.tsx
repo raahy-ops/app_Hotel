@@ -1,13 +1,19 @@
-import { TouchableOpacity } from "react-native";
+import { Dimensions, TouchableOpacity, View } from "react-native";
 import AuthContainer from "../ui/Auth.Container";
 import PasswordField from "../ui/PasswordField";
 import TextField from "../ui/TextField";
 import { global } from "../ui/styles";
 import { Text } from "@react-navigation/elements";
+import { useRouter } from "expo-router";
+
+
 
 
 const RenderLogin = () => {
-    
+
+    const router = useRouter();
+
+    const {width, height} = Dimensions.get("window");
     return (
         <AuthContainer
             title="Seja Bem-Vindo!"
@@ -24,12 +30,27 @@ const RenderLogin = () => {
 
         <PasswordField
             label="Senha"
-            icon="lock"
+            icon="vpn-key"
             placeholder="********"
         /> 
+
+
         <TouchableOpacity style={[global.primaryButton]}>
             <Text style={global.primaryButtonText}>Entrar</Text>
         </TouchableOpacity>
+
+        <View style={{alignItems: "center", marginTop: height * 0.04}}>
+            <TouchableOpacity onPress={() => router.push("/(auth)/resetPassword")}>
+                <Text style={{color: "#2F4156", fontWeight: 600, fontSize: 17}}>Esqueci Minha Senha</Text>
+            </TouchableOpacity>
+
+            <View style={{backgroundColor: "#626770bb", width: width * 0.7, height: height * 0.001, borderRadius: 10, marginTop: height * 0.02}}></View>
+
+            <TouchableOpacity onPress={() => router.push("/(auth)/register")} style={{ marginTop: height * 0.04}}>
+                <Text style={{color: "#153947a2", fontWeight: 600, fontSize: 17}}>Não possui uma conta? Cadastre-se
+                </Text>
+            </TouchableOpacity>
+        </View>
         
 
 
@@ -37,4 +58,4 @@ const RenderLogin = () => {
     )
 };
 
-export default RenderLogin
+export default RenderLogin;

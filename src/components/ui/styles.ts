@@ -113,10 +113,10 @@ export const global = StyleSheet.create({
     },
 
     primaryButtonText: {
-        color : "#fff"
+        color : "#fff",
+        fontSize: 17,
+        fontWeight: 600,
     }
-
-
 
 
 })

@@ -1,4 +1,4 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TextInput, TextInputProps, View } from "react-native";
 import { global } from "./styles";
@@ -6,7 +6,7 @@ import { global } from "./styles";
 type Props = TextInputProps & {
     label : string;
     errorText?: string;
-    icon?: keyof typeof MaterialIcons.glyphMap;
+    icon?: keyof typeof MaterialIcons.glyphMap | keyof typeof FontAwesome5.glyphMap ;
 } 
 
 const TextField = ({label, errorText, icon, style, ...restInputPropos } : Props) => {
