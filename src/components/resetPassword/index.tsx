@@ -16,14 +16,14 @@ const RenderResetPassword = () => {
     const {width, height} = Dimensions.get("window");
     return (
         <AuthContainer
-            title="Seja Bem-Vindo!"
-            subtitle ="Faça o login para continuar"
-            icon="hotel">
+            title="Redefinição de senha"
+            subtitle ="Digite seu email para redefinir senha"
+            icon="user-lock">
         
         {/* children */}
         <TextField
-            label= "E-mail"
-            icon= "email"
+            label= "Seu e-mail"
+            icon={{lib: "MaterialIcons", name: "alternate-email"}}
             placeholder="user@email.com"
             keyboardType="email-address"
         />
@@ -31,7 +31,7 @@ const RenderResetPassword = () => {
 
 
         <TouchableOpacity style={[global.primaryButton]}>
-            <Text style={global.primaryButtonText}>Entrar</Text>
+            <Text style={global.primaryButtonText}>Enviar e-mail</Text>
         </TouchableOpacity>
 
         

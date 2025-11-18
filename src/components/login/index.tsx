@@ -1,10 +1,10 @@
+import { Text } from "@react-navigation/elements";
+import { useRouter } from "expo-router";
 import { Dimensions, TouchableOpacity, View } from "react-native";
 import AuthContainer from "../ui/Auth.Container";
 import PasswordField from "../ui/PasswordField";
 import TextField from "../ui/TextField";
 import { global } from "../ui/styles";
-import { Text } from "@react-navigation/elements";
-import { useRouter } from "expo-router";
 
 
 
@@ -23,19 +23,19 @@ const RenderLogin = () => {
         {/* children */}
         <TextField
             label= "E-mail"
-            icon= "email"
+            icon={{lib: "MaterialIcons", name: "email"}}
             placeholder="user@email.com"
             keyboardType="email-address"
         />
 
         <PasswordField
             label="Senha"
-            icon="vpn-key"
+            icon={{lib: "MaterialIcons", name: "vpn-key"}}
             placeholder="********"
         /> 
 
 
-        <TouchableOpacity style={[global.primaryButton]}>
+        <TouchableOpacity  onPress={() => router.push("../explorer")}style={[global.primaryButton]}>
             <Text style={global.primaryButtonText}>Entrar</Text>
         </TouchableOpacity>
 

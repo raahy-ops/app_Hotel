@@ -16,10 +16,7 @@ const PasswordField = (props: Props) => {
         <View>
             <TextField
             {...props}
-
-            icon={props.icon ?? "lock"}
             secureTextEntry={!show}
-            autoCapitalize="none"
             autoCorrect={false}
             />
 

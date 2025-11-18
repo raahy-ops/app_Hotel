@@ -3,10 +3,18 @@ import React from "react";
 import { Text, TextInput, TextInputProps, View } from "react-native";
 import { global } from "./styles";
 
+
+
+//Bibliotecas de ícones aceitas
+
+type NameIcon = 
+    | {lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
+    | {lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
+
 type Props = TextInputProps & {
     label : string;
     errorText?: string;
-    icon?: keyof typeof MaterialIcons.glyphMap | keyof typeof FontAwesome5.glyphMap ;
+    icon?: NameIcon ;
 } 
 
 const TextField = ({label, errorText, icon, style, ...restInputPropos } : Props) => {
@@ -17,7 +25,8 @@ const TextField = ({label, errorText, icon, style, ...restInputPropos } : Props)
             <View style={[global.inputIcon, errorText ? global.inputError : null]}>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size={22} color="#2F4156"/>
+                        {icon.lib === "MaterialIcons" && (
+                        <MaterialIcons name={icon.name} size={22} color="#2F4156"/> )}
                     </View>
                 )}
                 <TextInput

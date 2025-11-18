@@ -1,4 +1,3 @@
-import { Label } from "@react-navigation/elements";
 import { Dimensions, StyleSheet } from "react-native";
 
 const { width, height } = Dimensions.get("window");
@@ -16,13 +15,13 @@ export const global = StyleSheet.create({
     },
     
     container: {
-        paddingHorizontal: width * 0.07,
-        paddingTop: height * 0.07
+      marginHorizontal: width * 0.04
     },
     
     header: {
+        marginTop: height * 0.03,
         alignItems: "center",
-        paddingBottom: height * 0.03
+        marginBottom: height * 0.03
     },
 
     title: {
@@ -38,7 +37,6 @@ export const global = StyleSheet.create({
     },
 
     content: {
-        
         backgroundColor : "#C8D9E6",
         borderRadius : 10,
         padding: width * 0.02,
@@ -69,7 +67,6 @@ export const global = StyleSheet.create({
         borderColor: "#2F4156",
         borderRadius: 10
     },
-
 
 
     inputError: {
