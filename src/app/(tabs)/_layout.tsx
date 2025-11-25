@@ -10,22 +10,22 @@ const  TabLayout = () =>   {
         <Tabs.Screen
         name="explorer"
         options={{
-          title: 'Explore',
+          title: 'Explorer',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="reservations"
+        name="reservation"
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          title: 'Reservation',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="suitcase" color={color} />,
         }}
       />
 
       <Tabs.Screen
         name="account"
         options={{
-          title: 'Perfil',
+          title: 'Account',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
         }}
       />
