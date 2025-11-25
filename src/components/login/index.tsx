@@ -21,6 +21,7 @@ const RenderLogin = () => {
             icon="hotel">
         
         {/* children */}
+        <View style= {global.content}>
         <TextField
             label= "E-mail"
             icon={{lib: "MaterialIcons", name: "email"}}
@@ -51,6 +52,7 @@ const RenderLogin = () => {
                 </Text>
             </TouchableOpacity>
         </View>
+    </View>
         
 
 

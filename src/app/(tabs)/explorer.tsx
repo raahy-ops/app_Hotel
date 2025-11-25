@@ -1,19 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import RenderExplorer from "@/components/explorer";
 
-const  Explore = () =>  {
+
+
+const  Explorer = () =>  {
   return (
-    <View style={styles.container}>
-      <Text>Explore</Text>
-    </View>
+    <RenderExplorer />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
-
-export default Explore;
+export default Explorer;

@@ -1,19 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import RenderReservation from "@/components/reservation";
 
-const  Explore = () =>  {
+
+
+const  Reservation = () =>  {
   return (
-    <View style={styles.container}>
-      <Text>Reservation</Text>
-    </View>
+    <RenderReservation />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
-
-export default Explore;
+export default Reservation;

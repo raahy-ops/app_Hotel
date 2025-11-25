@@ -1,19 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import RenderAccount from "@/components/account";
+
+
 
 const  Account = () =>  {
   return (
-    <View style={styles.container}>
-      <Text>Account</Text>
-    </View>
+    <RenderAccount />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Account;
