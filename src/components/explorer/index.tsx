@@ -1,8 +1,7 @@
 /*Explorer*/
-
-
 import AuthContainer from "../ui/Auth.Container";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import DateSelector from "../ui/DateSelector";
 
 
 
@@ -11,7 +10,7 @@ const RenderExplorer = () => {
         <AuthContainer>
             { /* children */ }
             <View>
-                <Text>Esta sera atela de inicio</Text>
+                <DateSelector />
             </View>
 
         </AuthContainer>
