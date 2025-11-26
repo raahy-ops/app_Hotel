@@ -17,22 +17,23 @@ const  TabLayout = () =>   {
         name="explorer"
         options={{
           title: 'Explorer',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="home" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="cards-heart-outline" color={color} />,
         }}
+
       />
       <Tabs.Screen
         name="reservation"
         options={{
           title: 'Reservation',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="bag-suitcase" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="bag-suitcase-outline" color={color} />,
         }}
       />
 
       <Tabs.Screen
         name="account"
         options={{
-          title: 'Account',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="account-circle" color={color} />,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="account-circle-outline" color={color} />,
         }}
       />
     </Tabs>

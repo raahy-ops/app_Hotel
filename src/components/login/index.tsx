@@ -42,13 +42,13 @@ const RenderLogin = () => {
 
         <View style={{alignItems: "center", marginTop: height * 0.04}}>
             <TouchableOpacity onPress={() => router.push("/(auth)/resetPassword")}>
-                <Text style={{color: "#2F4156", fontWeight: 600, fontSize: 17}}>Esqueci Minha Senha</Text>
+                <Text style={{color: "#634627ff", fontWeight: 600, fontSize: 17}}>Esqueci Minha Senha</Text>
             </TouchableOpacity>
 
             <View style={{backgroundColor: "#626770bb", width: width * 0.7, height: height * 0.001, borderRadius: 10, marginTop: height * 0.02}}></View>
 
             <TouchableOpacity onPress={() => router.push("/(auth)/register")} style={{ marginTop: height * 0.04}}>
-                <Text style={{color: "#153947a2", fontWeight: 600, fontSize: 17}}>Não possui uma conta? Cadastre-se
+                <Text style={{color: "#373b2eea", fontWeight: 600, fontSize: 17}}>Não possui uma conta? Cadastre-se
                 </Text>
             </TouchableOpacity>
         </View>

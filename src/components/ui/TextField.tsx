@@ -26,7 +26,10 @@ const TextField = ({label, errorText, icon, style, ...restInputPropos } : Props)
                 {!! icon && (
                     <View>
                         {icon.lib === "MaterialIcons" && (
-                        <MaterialIcons name={icon.name} size={22} color="#2F4156"/> )}
+                        <MaterialIcons name={icon.name} size={22} color="#634627ff"/> )}
+                        {icon.lib === "FontAwesome5" && (
+                        <FontAwesome5 name={icon.name} size={22} color="#634627ff"/> )}
+
                     </View>
                 )}
                 <TextInput

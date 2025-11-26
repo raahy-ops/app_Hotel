@@ -27,17 +27,17 @@ export const global = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: "800",
-        color:"#567C8D",
+        color:"#4a503d",
     },
     
     subtitle: {
         fontSize: 17,
-        color: "#2F4156",
+        color: "#855A2D",
         marginTop: height * 0.01,
     },
 
     content: {
-        backgroundColor : "#C8D9E6",
+        backgroundColor : "#cfc4afea",
         borderRadius : 10,
         padding: width * 0.02,
         shadowColor: "#000",
@@ -53,7 +53,7 @@ export const global = StyleSheet.create({
     label: {
         fontSize: 16,
         fontWeight: "600",
-        color: "#2F4156",
+        color: "#4a503d",
         marginBottom: height * 0.01
     },
 
@@ -64,7 +64,7 @@ export const global = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 2,
-        borderColor: "#2F4156",
+        borderColor: "#4a503d",
         borderRadius: 10
     },
 
@@ -96,7 +96,7 @@ export const global = StyleSheet.create({
     },
 
     primaryButton: {
-        backgroundColor: "#567c8dd2",
+        backgroundColor: "#4a503d",
         borderRadius: 10,
         padding: width * 0.025,
         marginTop: width * 0.02,
