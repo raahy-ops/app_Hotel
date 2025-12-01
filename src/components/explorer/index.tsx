@@ -63,9 +63,9 @@ const RenderExplorer = () => {
             name:"bed"
         }}
         description={{
-            order: 1,
-            title: "1",
-            text: "cama de casal"
+            title: " Informações | Quarto",
+            text: "1 cama de casal\n1 cama de solteiro",
+            price: 180.90
         }}
     />
     </AuthContainer>
