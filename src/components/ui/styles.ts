@@ -101,7 +101,6 @@ export const global = StyleSheet.create({
         padding: width * 0.025,
         marginTop: width * 0.02,
         alignItems: "center"
-
     },
 
     primaryButtonDisabled: {

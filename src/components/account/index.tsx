@@ -1,5 +1,5 @@
-import AuthContainer from "../ui/Auth.Container";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import AuthContainer from "../ui/AuthContainer";
 
 
 
@@ -8,7 +8,7 @@ const RenderAccount = () => {
         <AuthContainer>
             { /* children */ }
             <View>
-                <Text>Esta sera a tela de conta</Text>
+                
             </View>
 
         </AuthContainer>

@@ -1,10 +1,9 @@
-import { Dimensions, TouchableOpacity, View } from "react-native";
-import AuthContainer from "../ui/Auth.Container";
-import PasswordField from "../ui/PasswordField";
-import TextField from "../ui/TextField";
-import { global } from "../ui/styles";
 import { Text } from "@react-navigation/elements";
 import { useRouter } from "expo-router";
+import { Dimensions, TouchableOpacity } from "react-native";
+import AuthContainer from "../ui/AuthContainer";
+import TextField from "../ui/TextField";
+import { global } from "../ui/styles";
 
 
 

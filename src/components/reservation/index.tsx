@@ -1,5 +1,5 @@
-import AuthContainer from "../ui/Auth.Container";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
+import AuthContainer from "../ui/AuthContainer";
 
 
 
