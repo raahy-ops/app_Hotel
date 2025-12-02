@@ -25,8 +25,15 @@ const RoomCard = ({image, label, description, icon }: Props) => {
       <View>
         {!!label && <Text style={{fontSize: 23, fontWeight: 600, marginTop: height * 0.02}}>{label}</Text>}
         <View style={styles.container}>
-          <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
+          {!!description &&(
+            <View>
+            <Text style={global.label}>{description.title}</Text>
+            </View>
+          )}
+        </View>
+             <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
             {!!icon && (
+         
               <View>
                 {icon.lib === "MaterialIcons" && (
                   <MaterialIcons name={icon.name} size={23} color="purple" />
@@ -42,9 +49,6 @@ const RoomCard = ({image, label, description, icon }: Props) => {
             {!!description && (
               <View style={styles.description}>
                 <View>
-                  {!!description.title && (
-                    <Text style= {global.label}>{description.title}</Text>
-                  )}
                   <Text style= {styles.text}>{description.text}</Text>
                 </View>
                 <View>
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
   image: {
     height: height * 0.27,
     width: "auto",
-    borderRadius: 10,
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -72,8 +76,8 @@ const styles = StyleSheet.create({
   
   container: {
     marginTop: height * 0.02,
-    backgroundColor: "#f3e6ffff",
-    borderRadius: 10,
+    backgroundColor: "#ecf0f1f6",
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
 
   contents: {
         backgroundColor : "#e2eaecf6",
-        borderRadius : 10,
+        borderRadius : 20,
         padding: width * 0.02,
         shadowColor: "#000",
         shadowOpacity: 0.05,
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
     price: {
       fontSize: 17,
       fontWeight: 600,
-      color: "purple",
+      color: "#527504ff",
     }
 
 });

@@ -15,17 +15,17 @@ const DateSelector = ({onSelectDate} : Props) => {
             <DatePicker
             mode="calendar"
             options={{
-                backgroundColor: '#f1eee5ff', //Fundo (background)
-                textHeaderColor: '#855A2D', //Mês
+                backgroundColor: '#e4e4e4ff', //Fundo (background)
+                textHeaderColor: '#472d0eff', //Mês
                 textDefaultColor: '#4a503d', //Número (data)
                 selectedTextColor: '#fff', //Cor do número (data) quando selecionado
-                mainColor: '#567C8D', //Setas laterais e seletor
-                textSecondaryColor: '#2F4156', //Dia da semana
+                mainColor: '#866826d5', //Setas laterais e seletor
+                textSecondaryColor: '#4f562fff', //Dia da semana
                 borderColor: 'rgba(122, 146, 165, 0.1)', //Borda
                 textFontSize: 14, //Tamanho da fonte (dias da semana e número -> data)
                 textHeaderFontSize: 15, //Tamanho da fonte (mês)
             }}
-            style={{borderRadius: 15, width: width * 0.62, height: "auto" }}
+            style={{borderRadius: 15, width: width * 0.62, height: "auto", position: "absolute", zIndex: 1}}
             isGregorian={true}
             minimumDate={today}
             onSelectedChange={(date) => {
