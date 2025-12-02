@@ -57,6 +57,7 @@ const RenderExplorer = () => {
         </View>                                                                                             {/*View do check-out que fecha aqui */}
     </View>
     <RoomCard 
+        image={require("../../../assets/images/room4.jpg")}
         label="Apartamento"
         icon={{
             lib: "FontAwesome5",
