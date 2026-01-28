@@ -1,15 +1,10 @@
-
-
-
-import  RenderResetPassword  from "@/components/resetPassword";
-
-/* Esqueci a senha */
+import RenderResetPassword from "@/components/resetPassword";
 
 const ResetPassword = () => {
-    
-    return (
+      return (
         <RenderResetPassword />
-    );
+   );
+
 }
 
 export default ResetPassword;

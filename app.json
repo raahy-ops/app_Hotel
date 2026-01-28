@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "appHotel",
-    "slug": "appHotel",
+    "name": "mobileHotel",
+    "slug": "mobileHotel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "apphotel",
+    "scheme": "mobilehotel",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

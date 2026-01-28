@@ -1,39 +1,35 @@
 import { FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import { Dimensions, Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { global } from "./styles";
-
 type NameIcon =
   | { lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
   | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
   | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
-
 type Infos = { title?: string; text: string; price: number };
-
 type Props = {
   image?: ImageSourcePropType;
   label?: string;
   description?: Infos;
   icon?: NameIcon;
 };
-
 const { width, height } = Dimensions.get("window");
-const RoomCard = ({image, label, description, icon }: Props) => {
+const RoomCard = ({ image, label, description, icon }: Props) => {
   return (
-    <View style={styles.contents}>
-      {!! image && 
+    <View style={global.content}>
+     {!!image &&
       <View><Image style={styles.image} source={image} resizeMode="cover"/></View>}
       <View>
         {!!label && <Text style={{fontSize: 23, fontWeight: 600, marginTop: height * 0.02}}>{label}</Text>}
         <View style={styles.container}>
-          {!!description &&(
+          {!!description && (
             <View>
-            <Text style={global.label}>{description.title}</Text>
-            </View>
+              {!!description.title && (
+                <Text style={global.label}>{description.title}</Text>
+              )}
+            </View>   
           )}
-        </View>
-             <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
+          <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
             {!!icon && (
-         
               <View>
                 {icon.lib === "MaterialIcons" && (
                   <MaterialIcons name={icon.name} size={23} color="purple" />
@@ -49,10 +45,10 @@ const RoomCard = ({image, label, description, icon }: Props) => {
             {!!description && (
               <View style={styles.description}>
                 <View>
-                  <Text style= {styles.text}>{description.text}</Text>
+                  <Text style={styles.text}>{description.text}</Text>
                 </View>
                 <View>
-                  <Text style= {styles.price}>R$ {description.price}</Text>
+                  <Text style={styles.price}>R$ {description.price}</Text>
                 </View>
               </View>
             )}
@@ -62,22 +58,21 @@ const RoomCard = ({image, label, description, icon }: Props) => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   image: {
     height: height * 0.27,
     width: "auto",
-    borderRadius: 20,
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 10,
     elevation: 2,
   },
-  
   container: {
+    padding: width * 0.02,
     marginTop: height * 0.02,
-    backgroundColor: "#ecf0f1f6",
-    borderRadius: 20,
+    backgroundColor: "#f6ecffff",
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -88,25 +83,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-
-  contents: {
-        backgroundColor : "#e2eaecf6",
-        borderRadius : 20,
-        padding: width * 0.02,
-        shadowColor: "#000",
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
-        elevation: 2
-    },
-    text: {
-      fontSize: 17,
-    },
-
-    price: {
-      fontSize: 17,
-      fontWeight: 600,
-      color: "#527504ff",
-    }
-
+  text: {
+    fontSize: 15,
+  },
+  price: {
+    fontSize: 17,
+    fontWeight: 600,
+    color: "purple"
+  }
 });
 export default RoomCard;

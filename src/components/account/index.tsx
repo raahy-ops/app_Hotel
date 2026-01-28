@@ -1,18 +1,14 @@
 import { View } from "react-native";
 import AuthContainer from "../ui/AuthContainer";
 
-
-
 const RenderAccount = () => {
-    return(
-        <AuthContainer>
-            { /* children */ }
+  return (
+    <AuthContainer>
+        {/*children */}
             <View>
-                
+             
             </View>
-
-        </AuthContainer>
-    );
+    </AuthContainer>
+  );
 };
-
-export default RenderAccount
+export default RenderAccount;

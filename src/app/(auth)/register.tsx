@@ -1,15 +1,10 @@
-
-import  RenderRegister  from "@/components/register";
-
-/*Cadastro*/
+import RenderRegister from "@/components/register";
 
 const Register = () => {
-    
-    return (
+      return (
         <RenderRegister />
-    );
+   );
+
 }
 
 export default Register;
-
-

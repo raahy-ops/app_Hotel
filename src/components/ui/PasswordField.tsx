@@ -1,27 +1,28 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import TextField from "./TextField";
 import { TouchableOpacity, View } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import TextField from "./TextField";
 import { global } from "./styles";
 
 type Props = React.ComponentProps<typeof TextField>;
 
-const PasswordField = (props: Props) => {
+const PasswordField = (restInputProps: Props) => {
     /*React.useState*/
-  const [show, setShow] = useState(false); // mostrar senha
-
+    const [show, setShow] = useState(false);
     return (
-    <View>
-      <TextField {...props} secureTextEntry={!show} autoCorrect={false} />
+        <View>
+            <TextField
+            {...restInputProps}
+            secureTextEntry={!show}
+            autoCorrect={false}
+            />
 
-      <TouchableOpacity
-        style={global.eyeIcon}
-        onPress={() => setShow((showTrue) => !showTrue)}
-      >
-        <Ionicons name={show ? "eye-off" : "eye"} size={23} color="#634627ff" />
-      </TouchableOpacity>
-    </View>
-  );
+            <TouchableOpacity style={global.eyeIcon} onPress={() => setShow((showTrue) => !showTrue)}>
+                <Ionicons name={show ? "eye-outline" : "eye-off-outline"} size={23} 
+                color="#000"/>
+            </TouchableOpacity> 
+        
+        </View>
+    );
 };
-
 export default PasswordField;
