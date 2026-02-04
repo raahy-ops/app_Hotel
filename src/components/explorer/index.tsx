@@ -38,7 +38,7 @@ const RenderExplorer = () => {
               {/* Nova view para dar largura ao TextField */}
               <TextField
                 label="Check-in"
-                icon={{ lib: "FontAwesome5", name: "calendar-alt" }}
+                icon={{ lib: "MaterialIcons", name: "calendar-today" }}
                 placeholder="Selecione a data"
                 value={checkIn}
               />
@@ -57,7 +57,7 @@ const RenderExplorer = () => {
               {/* Nova view para dar largura ao TextField */}
               <TextField
                 label="Check-out"
-                icon={{ lib: "FontAwesome5", name: "calendar-alt" }}
+                icon={{ lib: "MaterialIcons", name: "calendar-today" }}
                 placeholder="Selecione a data"
                 value={checkOut}
               />
@@ -117,13 +117,13 @@ const RenderExplorer = () => {
             minGuests={1}
             maxGuests={6}
             step={1}
-            colorMin={"#420350ff"}
-            colorMax={"#420350ff"}
+            colorMin={"rgba(7, 4, 43, 0.94)"}
+            colorMax={"rgba(7, 4, 43, 0.94)"}
           />
         </View>
       </View>
       <RoomCard
-        image={require("../../../assets/images/quarto.jpg")}
+        image={require("../../../assets/images/quarto2.jpeg")}
         /* image={{uri: "https://"}} */
         label="Apartamento"
         icon={{

@@ -32,13 +32,13 @@ const RoomCard = ({ image, label, description, icon }: Props) => {
             {!!icon && (
               <View>
                 {icon.lib === "MaterialIcons" && (
-                  <MaterialIcons name={icon.name} size={23} color="purple" />
+                  <MaterialIcons name={icon.name} size={23} color="rgba(17, 3, 99, 0.9)" />
                 )}
                 {icon.lib === "FontAwesome5" && (
-                  <FontAwesome5 name={icon.name} size={23} color="purple" />
+                  <FontAwesome5 name={icon.name} size={23} color="rgba(17, 3, 99, 0.9)" />
                 )}
                 {icon.lib === "FontAwesome6" && (
-                  <FontAwesome6 name={icon.name} size={23} color="purple" />
+                  <FontAwesome6 name={icon.name} size={23} color="rgba(17, 3, 99, 0.9)" />
                 )}
               </View>
             )}
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     padding: width * 0.02,
     marginTop: height * 0.02,
-    backgroundColor: "#f6ecffff",
+    backgroundColor: "rgb(229, 235, 252)",
     borderRadius: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 17,
     fontWeight: 600,
-    color: "purple"
+    color: "rgba(11, 2, 63, 0.84)"
   }
 });
 export default RoomCard;

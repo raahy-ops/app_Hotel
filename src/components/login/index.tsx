@@ -41,7 +41,7 @@ const RenderLogin = () => {
         password: password,
       });
       await new Promise((req) => setTimeout(req, 2000));
-      if (email === "pamellapereto@gmail.com" && password === "123") {
+      if (email === "rayssabispo@gmail.com" && password === "123") {
         Alert.alert("Login bem-sucedido!");
         router.replace("/(tabs)/explorer");
       } else {
@@ -94,7 +94,7 @@ const RenderLogin = () => {
           <TouchableOpacity
             onPress={() => router.push("/(auth)/resetPassword")}
           >
-            <Text style={{ color: "#420350ff", fontSize: 17, fontWeight: 600 }}>
+            <Text style={{ color: "#567C8D", fontSize: 17, fontWeight: 600 }}>
               Esqueci minha senha
             </Text>
           </TouchableOpacity>
@@ -111,7 +111,7 @@ const RenderLogin = () => {
             onPress={() => router.push("/(auth)/register")}
             style={{ marginTop: height * 0.03 }}
           >
-            <Text style={{ color: "#1f1e1eff", fontWeight: 600, fontSize: 17 }}>
+            <Text style={{ color: "#0e2a4a", fontWeight: 600, fontSize: 17 }}>
               Não possui uma conta? Cadastre-se agora!
             </Text>
           </TouchableOpacity>

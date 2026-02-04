@@ -5,8 +5,8 @@ import { Tabs } from "expo-router";
 const TabLayout = () => {
   return (
     <Tabs
-      screenOptions={{ tabBarActiveTintColor: "#420350ff", tabBarInactiveTintColor: "#7c7c7cff",
-        headerShown: false, tabBarStyle: { backgroundColor: "#fef6ffff" } }}>
+      screenOptions={{ tabBarActiveTintColor: "#000B58", tabBarInactiveTintColor: "#7c7c7cff",
+        headerShown: false, tabBarStyle: { backgroundColor: "#FFF9EB" } }}>
       
       <Tabs.Screen
         name="explorer"

@@ -1,6 +1,8 @@
 import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window");
 export const global = StyleSheet.create({
+
+  
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
@@ -23,11 +25,11 @@ export const global = StyleSheet.create({
   },
   subtitle: {
     fontSize: 17,
-    color: "purple",
+    color: "#567C8D",
     marginTop: height * 0.01,
   },
   content: {
-    backgroundColor: "#f3eef8ff",
+    backgroundColor: "#F0F3FA",
     borderRadius: 10,
     padding: width * 0.02,
     shadowColor: "#000",
@@ -39,19 +41,21 @@ export const global = StyleSheet.create({
   inputGroup: {
     marginBottom: height * 0.02,
   },
+
   label: {
     fontSize: 17,
     fontWeight: "600",
     color: "#120715ff",
     marginBottom: height * 0.01,
   },
+
   inputIcon: {
     backgroundColor: "#fff",
     paddingLeft: width * 0.02,
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 2,
-    borderColor: "#420350ff",
+    borderColor: "rgba(0,0,0, 0.29)",
     borderRadius: 10,
   },
   input: {
@@ -76,7 +80,7 @@ export const global = StyleSheet.create({
     marginTop: height * 0.01,
   },
   primaryButton: {
-    backgroundColor: "#420350ff",
+    backgroundColor: "#000B58",
     borderRadius: 10,
     padding: width * 0.025,
     marginTop: width * 0.02,
@@ -91,4 +95,5 @@ export const global = StyleSheet.create({
     fontSize: 17,
     fontWeight: 600,
   },
+
 });

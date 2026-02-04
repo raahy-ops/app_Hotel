@@ -27,7 +27,7 @@ const AuthContainer = ({ title, subtitle, icon, children }: Props) => {
         <ScrollView contentContainerStyle={global.container}>
           <View style={global.header}>
 
-            {!!icon && <FontAwesome6 name={icon} size={30} color="purple" />}
+            {!!icon && <FontAwesome6 name={icon} size={30} color="#000B58" />}
             {!!title && <Text style={global.title}>{title}</Text>}  
             {!!subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
 

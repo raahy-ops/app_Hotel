@@ -27,13 +27,13 @@ const TextField = ({
         {!!icon && (
           <View>
             {icon.lib === "MaterialIcons" && (
-              <MaterialIcons name={icon.name} size={23} color="purple" />
+              <MaterialIcons name={icon.name} size={23} color="#31487A" />
             )}
             {icon.lib === "FontAwesome5" && (
-              <FontAwesome5 name={icon.name} size={23} color="purple" />
+              <FontAwesome5 name={icon.name} size={23} color="#31487A" />
             )}
             {icon.lib === "FontAwesome6" && (
-              <FontAwesome6 name={icon.name} size={23} color="purple" />
+              <FontAwesome6 name={icon.name} size={23} color="#31487A" />
             )}
           </View>
         )}

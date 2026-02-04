@@ -30,6 +30,7 @@ const InputSpin = ({
       colorMin={colorMin}
       style={{
         width: width * 0.45,
+        
       }}
     />
   );
