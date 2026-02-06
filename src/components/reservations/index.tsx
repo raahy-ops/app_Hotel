@@ -11,23 +11,23 @@ const { width } = Dimensions.get("window");
 const RenderReservation = () => {
   const router = useRouter();
 
-  // Aqui receberíamos os dados da Explore via params futuramente
+  // Aqui recebe os dados da Explore via params futuramente
   const { checkIn, checkOut, guests } = useLocalSearchParams();
 
   return (
     <AuthContainer
-      title="Minha Reserva"
+      title="Minhas Reservas"
       subtitle="Revise os itens do seu carrinho"
       icon="plane-departure"
     >
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={global.content}>
-          
+
           {/* Card do Item Selecionado */}
           <View style={styles.itemCard}>
             <View style={styles.cardHeader}>
               <FontAwesome5 name="bed" size={20} color="#07042b" />
-              <Text style={styles.roomLabel}>Apartamento Master</Text>
+              <Text style={styles.roomLabel}>Quarto Master</Text>
             </View>
             
             <View style={styles.divider} />
@@ -48,19 +48,6 @@ const RenderReservation = () => {
               </View>
             </View>
           </View>
-
-          {/* Seção de Dados do Hóspede Principal  TextField */}
-          <Text style={styles.sectionTitle}>Dados do Responsável</Text>
-          <TextField
-            label="Nome no Check-in"
-            icon={{ lib: "MaterialIcons", name: "person" }}
-            placeholder="Nome completo"
-          />
-          <TextField
-            label="Documento (RG ou CPF)"
-            icon={{ lib: "FontAwesome5", name: "id-card" }}
-            placeholder="000.000.000-00"
-          />
 
           {/* Resumo de Valores */}
           <View style={styles.priceCard}>
@@ -97,7 +84,7 @@ const RenderReservation = () => {
               style={styles.cancelButton}
               onPress={() => router.back()}
             >
-              <Text style={styles.cancelButtonText}>MODIFICAR DATAS</Text>
+              <Text style={styles.cancelButtonText}>ALTERAR DATAS</Text>
             </TouchableOpacity>
           </View>
 
@@ -182,7 +169,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   confirmButton: {
-    backgroundColor: "rgba(7, 4, 43, 0.94)", // Cor do seu InputSpin
+    backgroundColor: "rgba(7, 4, 43, 0.94)", // Cor do InputSpin
     height: 55,
     borderRadius: 12,
     justifyContent: "center",
