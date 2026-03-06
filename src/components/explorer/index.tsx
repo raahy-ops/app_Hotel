@@ -14,7 +14,9 @@ import RoomCard from "../ui/RoomCard";
 import TextField from "../ui/TextField";
 import { global } from "../ui/styles";
 const RenderExplorer = () => {
+ 
   const { width, height } = Dimensions.get("window");
+ 
   //useState() para gerenciar e alterar os estados
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
@@ -125,7 +127,7 @@ const RenderExplorer = () => {
       <RoomCard
         image={require("../../../assets/images/quarto2.jpeg")}
         /* image={{uri: "https://"}} */
-        label="Apartamento"
+        label="Quarto Deluxe"
         icon={{
           lib: "FontAwesome5",
           name: "bed",
