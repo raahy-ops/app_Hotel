@@ -2,6 +2,17 @@ import { API_URL } from "@/constants/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
+type CartReservations = {
+  roomId: number;
+  nome: string;
+  qtd_cama_casal: number;
+  qtd_cama_solteiro: number;
+  preco: number;
+  dataInicio: string;
+  dataFim: string;
+  quantidade: number;
+};
+
 type AuthContextProps = {
   token: string | null;
   isLoading: boolean;
@@ -12,6 +23,13 @@ type AuthContextProps = {
     dataFim: string,
     quantidade: number,
   ) => Promise<any[]>;
+
+  cartReservations: CartReservations[];
+  addReservationToCart: (resevation: CartReservations) => void;
+  removeReservationFromCart: (index: number) => void;
+  clearCart: () => void;
+
+  //Segunda: criar a ordem de pedido com as reservas => forma de pagamento e adicional
 };
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -19,17 +37,29 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  // Carregar token ao abrir o app
+  const [cartReservations, setCartReservations] = useState<CartReservations[]>(
+    [],
+  );
+
+  // Carregar token e dados do carrinho local ao abrir o app
   useEffect(() => {
     (async () => {
       try {
         const stored = await AsyncStorage.getItem("token");
+        const storedCart = await AsyncStorage.getItem("cartReservations");
+
         if (stored) setToken(stored);
+        if (storedCart) setCartReservations(JSON.parse(storedCart));
       } finally {
         setIsLoading(false);
       }
     })();
   }, []);
+
+  useEffect(() => {
+    AsyncStorage.setItem("cartReservations", JSON.stringify(cartReservations));
+  }, [cartReservations]);
+
   async function signIn(email: string, senha: string) {
     const res = await fetch(`${API_URL}/login`, {
       method: "POST",
@@ -75,8 +105,37 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return await res.json();
   }
 
+  //Adicionar localmente um item ao carrinho
+  const addReservationToCart = (reservation: CartReservations) => {
+    setCartReservations((propsRoomReserved) => [
+      ...propsRoomReserved,
+      reservation,
+    ]);
+  };
+
+  //Remover localmente um item em específico do carrinho
+  const removeReservationFromCart = (index: number) => {
+    setCartReservations((propsRoomReserved) =>
+      propsRoomReserved.filter((_, i) => i !== index),
+    );
+  };
+
+  //Remover localmente todos os objetos do carrinho
+  const clearCart = () => {
+    setCartReservations([]);
+  };
+
   const value = useMemo(
-    () => ({ token, isLoading, signIn, signOut, searchRoom }),
+    () => ({
+      token,
+      isLoading,
+      signIn,
+      signOut,
+      searchRoom,
+      cartReservations,
+      addReservationToCart,
+      clearCart,
+    }),
     [token, isLoading],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

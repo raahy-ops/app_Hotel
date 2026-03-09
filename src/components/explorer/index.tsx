@@ -1,8 +1,12 @@
+import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 import {
+  ActivityIndicator,
+  Alert,
   Dimensions,
   Modal,
   Pressable,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
@@ -13,16 +17,55 @@ import InputSpin from "../ui/InputSpin";
 import RoomCard from "../ui/RoomCard";
 import TextField from "../ui/TextField";
 import { global } from "../ui/styles";
+
 const RenderExplorer = () => {
- 
+  const { searchRoom, addReservationToCart } = useAuth();
   const { width, height } = Dimensions.get("window");
- 
   //useState() para gerenciar e alterar os estados
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [qntGuests, setQntGuests] = useState<number>(1);
   const [calendar, setCalendar] = useState<"checkin" | "checkout" | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [availableRooms, setAvailableRooms] = useState<any[]>([]);
   const closeCalendar = () => setCalendar(null);
+
+  const handleSearch = async () => {
+    if (!checkIn || !checkOut) {
+      Alert.alert("ATENÇÃO!", "Selecione as datas de entrada e saída.");
+      return;
+    }
+    setLoading(true);
+    setAvailableRooms([]);
+
+    try {
+      const rooms = await searchRoom(checkIn, checkOut, qntGuests);
+      setAvailableRooms(rooms || []);
+      console.log(rooms);
+    } catch (error: any) {
+      if (!error?.message?.includes("encontrado")) {
+        Alert.alert("ERRO", "Ocorreu um problema ao buscar quartos.");
+      }
+      setAvailableRooms([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddToCart = (room: any) => {
+    addReservationToCart({
+      roomId: room.id,
+      nome: room.nome,
+      qtd_cama_casal: room.qtd_cama_casal,
+      qtd_cama_solteiro: room.qtd_cama_solteiro,
+      preco: Number(room.preco),
+      dataInicio: checkIn,
+      dataFim: checkOut,
+      quantidade: qntGuests,
+    });
+
+    Alert.alert("SUCESSO!", "Quarto adicionado ao carrinho!");
+  };
 
   return (
     <AuthContainer>
@@ -123,21 +166,70 @@ const RenderExplorer = () => {
             colorMax={"rgba(7, 4, 43, 0.94)"}
           />
         </View>
+        <TouchableOpacity disabled={loading} onPress={handleSearch}>
+          {loading ? (
+            <ActivityIndicator size="small" color="#420350ff" />
+          ) : (
+            <Text>Consultar disponibilidade</Text>
+          )}
+        </TouchableOpacity>
       </View>
-      <RoomCard
-        image={require("../../../assets/images/quarto2.jpeg")}
-        /* image={{uri: "https://"}} */
-        label="Quarto Deluxe"
-        icon={{
-          lib: "FontAwesome5",
-          name: "bed",
-        }}
-        description={{
-          title: "Descrição do quarto",
-          text: "1 cama de casal\n2 camas de solteiro",
-          price: 180.9,
-        }}
-      />
+
+      {/*Renderização dos quartos */}
+
+      {availableRooms.length > 0 ? (
+        <View>
+          <Text
+            style={[
+              global.label,
+              { marginTop: height * 0.04, textAlign: "center" },
+            ]}
+          >
+            Opções encontradas:
+          </Text>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={width * 0.07}
+          >
+            {availableRooms.map((room) => (
+              <RoomCard
+                key={room.id}
+                image={
+                  room.fotos?.length > 0
+                    ? { uri: room.fotos[0].url }
+                    : require("../../../assets/images/quarto2.jpeg") 
+                }
+                /* image={{uri: "https://"}} */
+
+                label={room.nome}
+                icon={{
+                  lib: "FontAwesome5",
+                  name: "bed",
+                }}
+                description={{
+                  title: "Descrição do quarto",
+                  text: `${room.qtd_cama_casal} cama(s) casal \n${room.qtd_cama_solteiro} cama(s) solteiro `,
+                  price: Number(room.preco),
+                }}
+                onPressReserve={() => handleAddToCart(room)}
+              />
+            ))}
+          </ScrollView>
+        </View>
+      ) : (
+        <View>
+          <Text
+            style={[
+              global.label,
+              { marginTop: height * 0.04, textAlign: "center" },
+            ]}
+          >
+            Nenhuma opção disponível!
+          </Text>
+        </View>
+      )}
     </AuthContainer>
   );
 };

@@ -11,7 +11,7 @@ const { width } = Dimensions.get("window");
 const RenderReservation = () => {
   const router = useRouter();
 
-  // Aqui recebe os dados da Explore via params futuramente
+  // Aqui recebe os dados da Explore 
   const { checkIn, checkOut, guests } = useLocalSearchParams();
 
   return (
